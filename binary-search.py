@@ -1,18 +1,17 @@
-numbers = [-1, 0, 3, 5, 9, 12]
+def findNumber(numbers, value):
+  l = 0
+  r = len(numbers) - 1
 
-def findNum(input):
-  left = 0
-  right = len(numbers) - 1
+  while(l <= r):
+    m = (l + r) // 2
 
-  while left <= right:
-    mid = (left + right) // 2
-
-    if numbers[mid] > input:
-      right = mid - 1
-    elif numbers[mid] < input:
-      left = mid + 1  
+    if numbers[m] < value:
+      l = m + 1
+    elif numbers[m] > value:
+      r = m - 1
     else:
-      return mid
+      return m
   return -1
 
-print(findNum(-2))
+numbers = [0, 2, 4, 6, 10]
+print(findNumber(numbers, 1))

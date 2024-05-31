@@ -8,9 +8,12 @@ def find_judge(n, trust):
     outgoing[trust[i][0]] += 1
     incoming[trust[i][1]] += 1
   
-    
+  for key in incoming.keys():
+    if outgoing[key] == 0 and incoming[key] == n - 1:
+      return key
+  return -1
 
 
 n = 3
-trust = [[1, 3], [2, 3]]
+trust = [[1, 2], [2, 3]]
 print(find_judge(n, trust))
